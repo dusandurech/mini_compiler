@@ -1,0 +1,468 @@
+
+begin_function testIfElse
+let h0 = 0
+let x = h0
+let h1 = 0
+let y = h1
+let h2 = 0
+let z = h2
+let h3 = 0
+let q = h3
+let h0 = 1
+let h1 = 2
+let h2 = h1 > h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l0
+let h4 = 1
+let x = h4
+label ifjmp_l0
+let h0 = 1
+let h1 = 2
+let h2 = h1 > h0
+ifjmp h2 ifelsejmp_l1
+let h3 = 1
+let z = h3
+jmp ifendjmp_l2
+label ifelsejmp_l1
+let h4 = 1
+let y = h4
+label ifendjmp_l2
+let h0 = 1
+let h1 = 2
+let h2 = h1 < h0
+ifjmp h2 ifelsejmp_l3
+let h3 = 1
+let q = h3
+jmp ifendjmp_l4
+label ifelsejmp_l3
+let h4 = 1
+let z = h4
+label ifendjmp_l4
+print x
+print y
+print z
+print q
+end_function
+
+begin_function testCycle
+let h0 = 3
+let n = h0
+let h1 = 0
+let i = h1
+label whilestart_jmp_l5
+let h0 = n
+let h1 = i
+let h2 = h1 < h0
+let h3 = neg h2
+ifjmp h3 whilestop_jmp_l6
+let h4 = 1
+let h5 = i
+let h6 = h5 + h4
+let i = h6
+print i
+jmp whilestart_jmp_l5
+label whilestop_jmp_l6
+let h7 = 0
+let i = h7
+label dostart_jmp_l7
+let h0 = 1
+let h1 = i
+let h2 = h1 + h0
+let i = h2
+print i
+let h3 = n
+let h4 = i
+let h5 = h4 < h3
+ifjmp h5 dostart_jmp_l7
+label dostop_jmp_l8
+let h0 = 0
+let i = h0
+label forloop_jmp_l11
+let h1 = n
+let h2 = i
+let h3 = h2 < h1
+let h4 = neg h3
+ifjmp h4 forstop_jmp_l10
+print i
+label forstart_jmp_l9
+let h5 = 1
+let h6 = i
+let h7 = h6 + h5
+let i = h7
+jmp forloop_jmp_l11
+label forstop_jmp_l10
+print n
+end_function
+
+begin_function testForBreakContinue
+let h0 = 0
+let i = h0
+label forloop_jmp_l13
+let h1 = 5
+let h2 = i
+let h3 = h2 < h1
+let h4 = neg h3
+ifjmp h4 forstop_jmp_l12
+print i
+label forstart_jmp_l11
+let h5 = 1
+let h6 = i
+let h7 = h6 + h5
+let i = h7
+jmp forloop_jmp_l13
+label forstop_jmp_l12
+let h0 = 0
+let i = h0
+label forloop_jmp_l15
+let h1 = 5
+let h2 = i
+let h3 = h2 < h1
+let h4 = neg h3
+ifjmp h4 forstop_jmp_l14
+let h0 = 2
+let h1 = i
+let h2 = h1 == h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l15
+jmp forstart_jmp_l13
+label ifjmp_l15
+print i
+label forstart_jmp_l13
+let h4 = 1
+let h5 = i
+let h6 = h5 + h4
+let i = h6
+jmp forloop_jmp_l15
+label forstop_jmp_l14
+let h0 = 0
+let i = h0
+label forloop_jmp_l18
+let h1 = 5
+let h2 = i
+let h3 = h2 < h1
+let h4 = neg h3
+ifjmp h4 forstop_jmp_l17
+let h0 = 2
+let h1 = i
+let h2 = h1 == h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l18
+jmp forstop_jmp_l17
+label ifjmp_l18
+print i
+label forstart_jmp_l16
+let h4 = 1
+let h5 = i
+let h6 = h5 + h4
+let i = h6
+jmp forloop_jmp_l18
+label forstop_jmp_l17
+end_function
+
+begin_function testWhileBreakContinue
+let h0 = 0
+let i = h0
+label whilestart_jmp_l19
+let h0 = 5
+let h1 = i
+let h2 = h1 < h0
+let h3 = neg h2
+ifjmp h3 whilestop_jmp_l20
+let h4 = 1
+let h5 = i
+let h6 = h5 + h4
+let i = h6
+print i
+jmp whilestart_jmp_l19
+label whilestop_jmp_l20
+let h7 = 0
+let i = h7
+label whilestart_jmp_l21
+let h0 = 5
+let h1 = i
+let h2 = h1 < h0
+let h3 = neg h2
+ifjmp h3 whilestop_jmp_l22
+let h4 = 1
+let h5 = i
+let h6 = h5 + h4
+let i = h6
+let h0 = 2
+let h1 = i
+let h2 = h1 == h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l23
+jmp whilestart_jmp_l21
+label ifjmp_l23
+print i
+jmp whilestart_jmp_l21
+label whilestop_jmp_l22
+let h4 = 0
+let i = h4
+label whilestart_jmp_l24
+let h0 = 5
+let h1 = i
+let h2 = h1 < h0
+let h3 = neg h2
+ifjmp h3 whilestop_jmp_l25
+let h0 = 2
+let h1 = i
+let h2 = h1 == h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l26
+jmp whilestop_jmp_l25
+label ifjmp_l26
+let h4 = 1
+let h5 = i
+let h6 = h5 + h4
+let i = h6
+print i
+jmp whilestart_jmp_l24
+label whilestop_jmp_l25
+end_function
+
+begin_function testDoWhileBreakContinue
+let h0 = 0
+let i = h0
+label dostart_jmp_l27
+let h0 = 1
+let h1 = i
+let h2 = h1 + h0
+let i = h2
+print i
+let h3 = 5
+let h4 = i
+let h5 = h4 < h3
+ifjmp h5 dostart_jmp_l27
+label dostop_jmp_l28
+let h6 = 0
+let i = h6
+label dostart_jmp_l29
+let h0 = 1
+let h1 = i
+let h2 = h1 + h0
+let i = h2
+let h0 = 2
+let h1 = i
+let h2 = h1 == h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l31
+jmp dostart_jmp_l29
+label ifjmp_l31
+print i
+let h4 = 5
+let h5 = i
+let h6 = h5 < h4
+ifjmp h6 dostart_jmp_l29
+label dostop_jmp_l30
+let h7 = 0
+let i = h7
+label dostart_jmp_l32
+let h0 = 2
+let h1 = i
+let h2 = h1 == h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l34
+jmp dostop_jmp_l33
+label ifjmp_l34
+let h4 = 1
+let h5 = i
+let h6 = h5 + h4
+let i = h6
+print i
+let h7 = 5
+let h8 = i
+let h9 = h8 < h7
+ifjmp h9 dostart_jmp_l32
+label dostop_jmp_l33
+end_function
+
+begin_function testMath
+let h0 = 5
+let h1 = 3
+let h2 = 2
+let h3 = h2 * h1
+let h4 = h3 + h0
+let h5 = 2
+let h6 = 1
+let h7 = 5
+let h8 = 6
+let h9 = h8 * h7
+let h10 = 4
+let h11 = h10 + h9
+let h12 = 3
+let h13 = 2
+let h14 = 1
+let h15 = h14 + h13
+let h16 = h15 * h12
+let h17 = h16 + h11
+let h18 = h17 + h6
+let h19 = h18 / h5
+let h20 = h19 + h4
+let x = h20
+print x
+end_function
+
+begin_function testArg
+param a
+param b
+param c
+print a
+print b
+print c
+end_function
+
+begin_function testLogic
+let h0 = 0
+let a = h0
+let h0 = 2
+let h1 = 1
+let h2 = h1 < h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l35
+let h4 = 1
+let h5 = a
+let h6 = h5 + h4
+let a = h6
+label ifjmp_l35
+let h0 = 2
+let h1 = 1
+let h2 = h1 > h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l36
+let h4 = 1
+let h5 = a
+let h6 = h5 + h4
+let a = h6
+label ifjmp_l36
+let h0 = 2
+let h1 = 1
+let h2 = h1 == h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l37
+let h4 = 1
+let h5 = a
+let h6 = h5 + h4
+let a = h6
+label ifjmp_l37
+let h0 = 2
+let h1 = 1
+let h2 = h1 != h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l38
+let h4 = 1
+let h5 = a
+let h6 = h5 + h4
+let a = h6
+label ifjmp_l38
+print a
+let h7 = 0
+let b = h7
+let h0 = 0
+let h1 = 1
+let h2 = h1 or h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l39
+let h4 = 1
+let h5 = b
+let h6 = h5 + h4
+let b = h6
+label ifjmp_l39
+let h0 = 1
+let h1 = 1
+let h2 = h1 or h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l40
+let h4 = 1
+let h5 = b
+let h6 = h5 + h4
+let b = h6
+label ifjmp_l40
+let h0 = 0
+let h1 = 0
+let h2 = h1 or h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l41
+let h4 = 1
+let h5 = b
+let h6 = h5 + h4
+let b = h6
+label ifjmp_l41
+let h0 = 1
+let h1 = 0
+let h2 = h1 or h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l42
+let h4 = 1
+let h5 = b
+let h6 = h5 + h4
+let b = h6
+label ifjmp_l42
+print b
+let h7 = 0
+let c = h7
+let h0 = 0
+let h1 = 1
+let h2 = h1 and h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l43
+let h4 = 1
+let h5 = c
+let h6 = h5 + h4
+let c = h6
+label ifjmp_l43
+let h0 = 1
+let h1 = 1
+let h2 = h1 and h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l44
+let h4 = 1
+let h5 = c
+let h6 = h5 + h4
+let c = h6
+label ifjmp_l44
+let h0 = 0
+let h1 = 0
+let h2 = h1 and h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l45
+let h4 = 1
+let h5 = c
+let h6 = h5 + h4
+let c = h6
+label ifjmp_l45
+let h0 = 1
+let h1 = 0
+let h2 = h1 and h0
+let h3 = neg h2
+ifjmp h3 ifjmp_l46
+let h4 = 1
+let h5 = c
+let h6 = h5 + h4
+let c = h6
+label ifjmp_l46
+print c
+end_function
+
+begin_function main
+call testIfElse
+call testCycle
+call testForBreakContinue
+call testWhileBreakContinue
+call testDoWhileBreakContinue
+call testMath
+call testLogic
+let h0 = 2
+let h1 = 8
+let h2 = h1 / h0
+add_param h2
+let h3 = 3
+let h4 = 2
+let h5 = h4 * h3
+add_param h5
+let h6 = 2
+let h7 = 1
+let h8 = h7 + h6
+add_param h8
+call testArg
+end_function

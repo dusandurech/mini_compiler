@@ -1,0 +1,65 @@
+$program -> $list_function $
+
+$expr -> $expr_and_or
+
+$expr_and_or -> $expr_and_or and $expr_cmp
+$expr_and_or -> $expr_and_or or $expr_cmp
+$expr_and_or -> $expr_cmp
+
+$expr_cmp -> $expr_cmp == $expr_add_sub
+$expr_cmp -> $expr_cmp != $expr_add_sub
+$expr_cmp -> $expr_cmp > $expr_add_sub
+$expr_cmp -> $expr_cmp >= $expr_add_sub
+$expr_cmp -> $expr_cmp < $expr_add_sub
+$expr_cmp -> $expr_cmp <= $expr_add_sub
+$expr_cmp -> $expr_add_sub
+
+$expr_add_sub -> $expr_add_sub + $expr_mul_div
+$expr_add_sub -> $expr_add_sub - $expr_mul_div
+$expr_add_sub -> $expr_mul_div
+
+$expr_mul_div -> $expr_mul_div * $expr_unar
+$expr_mul_div -> $expr_mul_div / $expr_unar
+$expr_mul_div -> $expr_mul_div % $expr_unar
+$expr_mul_div -> $expr_unar
+
+$expr_unar -> variable
+$expr_unar -> number
+
+$expr_unar -> variable ( )
+$expr_unar -> variable ( $call_function_arg )
+$expr_unar -> ( $expr_add_sub )
+$expr_unar -> not $expr_unar
+$expr_unar -> + $expr_unar
+$expr_unar -> - $expr_unar
+$expr_unar -> variable = $expr_and_or
+
+$function -> function variable ( $list_arg ) $line
+$function -> function variable ( ) $line
+
+$list_arg -> variable
+$list_arg -> variable , $list_arg
+
+$call_function_arg -> $expr
+$call_function_arg -> $expr , $call_function_arg
+
+$list_function -> $function
+$list_function -> $function $list_function
+
+$block -> $cmd 
+$block -> $cmd  $block
+
+$line -> $cmd
+$line -> { $block }
+
+$cmd -> $expr ;
+$cmd -> if ( $expr ) $line
+$cmd -> if ( $expr ) $line else $line
+$cmd -> while ( $expr ) $line
+$cmd -> do $line while ( $expr ) ;
+$cmd -> for ( $expr ; $expr ; $expr ) $line
+$cmd -> return ;
+$cmd -> return  $expr ;
+$cmd -> break ;
+$cmd -> continue ;
+$cmd -> print variable ;

@@ -1,0 +1,219 @@
+
+function testIfElse()
+{
+	x = 0;
+	y = 0;
+	z = 0;
+	q = 0;
+	
+	if( 2 > 1 )
+	{
+		x = 1;
+	}
+
+	if( 2 > 1 )
+	{
+		y = 1;
+	}
+	else
+	{
+		z = 1;
+	}
+
+	if( 2 < 1 )
+	{
+		z = 1;
+	}
+	else
+	{
+		q = 1;
+	}
+	
+	print x;
+	print y;
+	print z;
+	print q;
+}
+
+function testCycle()
+{
+	n = 3;
+	i = 0;
+	
+	while( i < n )
+	{
+		i = i + 1;
+		print i;
+	}
+	
+	i = 0;
+	
+	do{
+		i = i + 1;
+		print i;
+	}while(i < n );
+	
+	for(i = 0; i < n; i = i + 1)
+	{
+		print i;
+	}
+	
+	print n;
+}
+
+function testForBreakContinue()
+{
+	for(i = 0; i < 5; i = i + 1)
+	{
+		print i;
+	}
+
+	for(i = 0; i < 5; i = i + 1)
+	{
+		if( i == 2 )
+		{
+			continue;
+		}
+		
+		print i;
+	}
+	
+	for(i = 0; i < 5; i = i + 1)
+	{
+		if( i == 2 )
+		{
+			break;
+		}
+		
+		print i;
+	}
+}
+
+function testWhileBreakContinue()
+{
+	i = 0;
+	
+	while( i < 5 )
+	{
+		i = i + 1;
+		print i;
+	}
+
+	i = 0;
+	
+	while( i < 5 )
+	{
+		i = i + 1;
+		
+		if( i == 2 )
+		{
+			continue;
+		}
+		
+		print i;
+	}
+	
+	i = 0;
+	
+	while( i < 5 )
+	{
+		if( i == 2 )
+		{
+			break;
+		}
+		
+		i = i + 1;
+		print i;
+	}
+}
+
+function testDoWhileBreakContinue()
+{
+	i = 0;
+	
+	do{
+		i = i + 1;
+		print i;
+	}while(i < 5 );
+
+	i = 0;
+	
+	do{
+		i = i + 1;
+		
+		if( i == 2 )
+		{
+			continue;
+		}
+		
+		print i;
+	}while(i < 5 );
+	
+	i = 0;
+	
+	do{
+		if( i == 2 )
+		{
+			break;
+		}
+		
+		i = i + 1;
+		print i;
+	}while(i < 5 );
+}
+
+function testMath()
+{
+	x = ((1 + 2) * 3 + ( 4 + 6 * 5 ) + 1) / 2 + ( 2 * 3  + 5 );
+	print x;
+}
+
+function testArg(a, b, c)
+{
+	print a;
+	print b;
+	print c;
+}
+
+function testLogic()
+{
+	a = 0;
+	
+	if( 1 < 2 ) a = a + 1;
+	if( 1 > 2 ) a = a + 1;
+	if( 1 == 2 ) a = a + 1;
+	if( 1 != 2 ) a = a + 1;
+	
+	print a;
+	
+	b = 0;
+	
+	if( 1 or 0 ) b = b + 1;
+	if( 1 or 1 ) b = b + 1;
+	if( 0 or 0 ) b = b + 1;
+	if( 0 or 1 ) b = b + 1;
+
+	print b;
+	
+	c = 0;
+	
+	if( 1 and 0 ) c = c + 1;
+	if( 1 and 1 ) c = c + 1;
+	if( 0 and 0 ) c = c + 1;
+	if( 0 and 1 ) c = c + 1;
+
+	print c;	
+
+}
+
+function main()
+{
+	testIfElse();
+	testCycle();
+	testForBreakContinue();
+	testWhileBreakContinue();
+	testDoWhileBreakContinue();
+	testMath();
+	testLogic();
+	testArg(1 + 2, 2 * 3, 8 / 2);
+}
